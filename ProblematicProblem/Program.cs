@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
+
 namespace ProblematicProblem
 
 {
@@ -57,7 +59,7 @@ namespace ProblematicProblem
 
                     Console.WriteLine();
                     Console.WriteLine("Would you like to add more? yes/no: ");
-                    string addToList = bool.Parse(Console.ReadLine());
+                    string answer = string.Format(Console.ReadLine());
                 }
             }
             
