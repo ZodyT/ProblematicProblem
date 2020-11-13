@@ -7,12 +7,13 @@ namespace ProblematicProblem
 {
     class Program
     {
-        Random rng;        
+                
         static bool cont = true;
         static List<string> activities = new List<string>() { "Movies", "Paintball", "Bowling", "Lazer Tag", "LAN Party", "Hiking", "Axe Throwing", "Wine Tasting" };
 
         static void Main(string[] args)
         {
+            Random rng = new Random();
             Console.Write("Hello, welcome to the random activity generator! \nWould you like to generate a random activity? yes/no: ");
             bool cont = bool.Parse(Console.ReadLine());
 
@@ -95,8 +96,6 @@ namespace ProblematicProblem
                     Console.WriteLine("Pick something else!");
 
                     activities.Remove(randomActivity);
-
-                    string randomNum = rng.Next(activities.Count);
 
                 }
 
