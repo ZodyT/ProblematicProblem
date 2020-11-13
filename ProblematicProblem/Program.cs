@@ -96,14 +96,13 @@ namespace ProblematicProblem
 
                     activities.Remove(randomActivity);
 
-                    string randomNumber = rng.Next(activities.Count);
+                    string randomNum = rng.Next(activities.Count);
 
-                    string randomActivity = activities[randomNumber];
                 }
 
                 Console.Write($"Ah got it! {randomActivity}, your random activity is: {userName}! Is this ok or do you want to grab another activity? Keep/Redo: ");
-                ConsoleWriteLine();
-                bool cont = bool.Parse(Console.ReadLine());
+                Console.WriteLine();
+                bool count = bool.Parse(Console.ReadLine());
             }
         }
     }
