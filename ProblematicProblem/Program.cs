@@ -49,7 +49,7 @@ namespace ProblematicProblem
 
                     activities.Add(userAddition);
 
-                    foreach (string activity activities)
+                    foreach (string activity in activities)
                     {
                         Console.Write($"{activity} ");
                         Thread.Sleep(250);
