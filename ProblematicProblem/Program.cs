@@ -22,7 +22,7 @@ namespace ProblematicProblem
             Console.WriteLine();
 
             Console.Write("What is your age? ");
-            int userAge = Console.ReadLine();
+            string userAge = Console.ReadLine();
 
             Console.WriteLine();
 
@@ -105,4 +105,4 @@ namespace ProblematicProblem
             }
         }
     }
-}}
+}
