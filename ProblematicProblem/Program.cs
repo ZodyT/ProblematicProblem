@@ -24,7 +24,7 @@ namespace ProblematicProblem
             Console.WriteLine();
 
             Console.Write("What is your age? ");
-            string userAge = Console.ReadLine();
+            int userAge = int.Parse(Console.ReadLine());
 
             Console.WriteLine();
 
