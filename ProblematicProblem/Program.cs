@@ -1,5 +1,7 @@
+using System;
 
-ProblematicProblem
+namespace ProblematicProblem
+
 {
     Program class
     {
