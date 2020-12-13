@@ -15,7 +15,14 @@ namespace ProblematicProblem
         {
             Random rng = new Random();
             Console.Write("Hello, welcome to the random activity generator! \nWould you like to generate a random activity? yes/no: ");
-            bool cont = bool.Parse(Console.ReadLine());
+            string ranResponse = Console.ReadLine();
+                      
+           bool cont = true;
+            if(ranResponse.ToLower() != "yes")
+            {
+                Console.WriteLine("GoodBye!");
+                return;
+            }
 
             Console.WriteLine();
 
@@ -30,7 +37,14 @@ namespace ProblematicProblem
             Console.WriteLine();
 
             Console.Write("Would you like to see the current list of activities? Sure/No thanks: ");
-            bool seeList = bool.Parse(Console.ReadLine());
+            string listResponse = Console.ReadLine();
+            bool seeList = true;
+
+            if (listResponse.ToLower() != "sure")
+            {
+                seeList = false;
+            }
+
 
             if (seeList)
             {
@@ -42,7 +56,14 @@ namespace ProblematicProblem
 
                 Console.WriteLine();
                 Console.Write("Would you like to add any activities before we generate one? yes/no: ");
-                bool addToList = bool.Parse(Console.ReadLine());
+                string addList = Console.ReadLine();
+                bool addToList = true;
+
+               if (addList.ToLower() != "yes")
+                {
+                    addToList = false;
+                }
+                
                 Console.WriteLine();
 
                 while (addToList)
@@ -60,11 +81,18 @@ namespace ProblematicProblem
 
                     Console.WriteLine();
                     Console.WriteLine("Would you like to add more? yes/no: ");
-                    string answer = string.Format(Console.ReadLine());
+                    string answer = Console.ReadLine();
+                    bool addAnswer = true;
+                    if (answer.ToLower() != "yes")
+                    {
+                        addAnswer = false;
+                        break;
+                    }
+
                 }
             }
-            
-            while (cont)
+
+            do
             {
                 Console.Write("Connecting to the database");
 
@@ -90,19 +118,31 @@ namespace ProblematicProblem
 
                 string randomActivity = activities[randomNumber];
 
-                if (userAge > 21 && randomActivity == "Wine Tasting")
+                if (userAge < 21 && randomActivity == "Wine Tasting")
                 {
                     Console.WriteLine($"Oh no! Looks like you are too young to do {randomActivity}");
                     Console.WriteLine("Pick something else!");
 
                     activities.Remove(randomActivity);
 
+                    randomNumber = rng.Next(activities.Count);
+
+                    randomActivity = activities[randomNumber];
                 }
 
-                Console.Write($"Ah got it! {randomActivity}, your random activity is: {userName}! Is this ok or do you want to grab another activity? Keep/Redo: ");
+                Console.Write($"Ah got it! {userName}, your random activity is: {randomActivity}! Is this ok or do you want to grab another activity? Keep/Redo: ");
                 Console.WriteLine();
-                bool count = bool.Parse(Console.ReadLine());
-            }
+                string userCount = Console.ReadLine();
+                Console.WriteLine();
+                if (userCount.ToLower() != "redo")
+                {
+                    cont = false;
+                    Console.WriteLine("Have fun!");
+                    return;
+                }
+
+            } while (cont);
+            
         }
     }
 }
